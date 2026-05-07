@@ -3,7 +3,7 @@ from .models import Product, Cart, Wishlist, Order, Contact, Rating
 
 admin.site.site_header = "VOGUE STORE Admin"
 admin.site.site_title = "VOGUE Admin"
-admin.site.index_title = "Store Management"
+admin.site.index_title = "Admin Panel"
 
 
 @admin.register(Product)

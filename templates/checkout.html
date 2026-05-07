@@ -101,7 +101,6 @@
                     </div>
                 </div>
                 <div class="summary-row"><span>Subtotal</span><span>₹{{ product.price }}</span></div>
-                <div class="summary-row"><span>Shipping</span><span style="color:#5cb85c;">{% if product.price >= 999 %}Free{% else %}₹99{% endif %}</span></div>
                 <div class="summary-total"><span>Total</span><span>₹{{ product.price }}</span></div>
                 {% else %}
                 {% if cart_items %}

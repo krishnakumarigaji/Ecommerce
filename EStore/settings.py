@@ -9,18 +9,68 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Your Shop Admin",
-    "site_header": "YOUR SHOP",
-    "site_brand": "Your Shop",
-    "welcome_sign": "Welcome!",
+    # ── Branding ──
+    "site_title": "Vogue Store",
+    "site_header": "Vogue Store",
+    "site_brand": "VOGUE",
+    "welcome_sign": "Welcome to Vogue Store Admin",
+    "copyright": "Vogue Store © 2026",
+
+    # ── Icons ──
+    "site_icon": None,  # add your logo path if you have one
+
+    # ── Top Menu ──
+    "topmenu_links": [
+        {"name": "🏠 Home", "url": "admin:index"},
+        {"name": "🛍️ Visit Store", "url": "/", "new_window": True},
+    ],
+
+    # ── Sidebar Icons (per model) ──
+    "icons": {
+        "auth":                     "fas fa-users-cog",
+        "auth.user":                "fas fa-user",
+        "auth.group":               "fas fa-users",
+        "store.orders":             "fas fa-shopping-bag",
+        "store.products":           "fas fa-tshirt",
+        "store.carts":              "fas fa-shopping-cart",
+        "store.contacts":           "fas fa-envelope",
+        "store.ratings":            "fas fa-star",
+        "store.wishlists":          "fas fa-heart",
+    },
+    "default_icon_parents":  "fas fa-store",
+    "default_icon_children": "fas fa-circle-dot",
+
+    # ── UI Tweaks ──
+    "show_sidebar":             True,
+    "navigation_expanded":      True,
+    "hide_apps":                [],
+    "hide_models":              [],
+    "related_modal_active":     True,   # opens related objects in popup
+    "custom_links":             {},
+    "show_ui_builder":          True,   # lets you tweak theme live in browser!
 }
 
+
 JAZZMIN_UI_TWEAKS = {
-    "navbar": "navbar-white",
-    "sidebar": "sidebar-dark-primary",
-    "accent": "accent-primary",
-    "theme": "flatly",  # change this to change the whole look
-}
+    "theme":                     "flatly",              # ✅ light
+    "dark_mode_theme":           None,                  # ✅ no dark
+
+    "navbar":                    "navbar-white navbar-light",  # ✅ white navbar
+    "no_navbar_border":          False,
+    "navbar_fixed":              True,
+    "brand_colour":              "navbar-light",
+
+    "sidebar":                   "sidebar-light-indigo", # ✅ light sidebar
+    "sidebar_fixed":             True,
+    "sidebar_nav_compact_style": True,
+    "sidebar_nav_child_indent":  True,
+
+    "accent":                    "accent-indigo",
+
+    "layout_boxed":              False,
+    "footer_fixed":              False,
+    "actions_sticky_top":        True,
+}  
 
 INSTALLED_APPS = [
     'jazzmin',              # ← add this line FIRST
