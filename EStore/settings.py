@@ -8,7 +8,22 @@ SECRET_KEY = 'django-insecure-e4r98!k4uo1&72e2bqc5+6kk=if&fx5db@%siql3e&sg&)ihy^
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 
+JAZZMIN_SETTINGS = {
+    "site_title": "Your Shop Admin",
+    "site_header": "YOUR SHOP",
+    "site_brand": "Your Shop",
+    "welcome_sign": "Welcome!",
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar": "navbar-white",
+    "sidebar": "sidebar-dark-primary",
+    "accent": "accent-primary",
+    "theme": "flatly",  # change this to change the whole look
+}
+
 INSTALLED_APPS = [
+    'jazzmin',              # ← add this line FIRST
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
