@@ -9,7 +9,6 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
-<<<<<<< HEAD
 JAZZMIN_SETTINGS = {
     # ── Branding ──
     "site_title": "Vogue Store",
@@ -72,11 +71,7 @@ JAZZMIN_UI_TWEAKS = {
     "layout_boxed":              False,
     "footer_fixed":              False,
     "actions_sticky_top":        True,
-}  
-
-INSTALLED_APPS = [
-    'jazzmin',              # ← add this line FIRST
-=======
+}       
 # ─── Jazzmin Admin Theme ───────────────────────────────────────────────────────
 JAZZMIN_SETTINGS = {
     # Browser tab title & header
@@ -196,7 +191,7 @@ JAZZMIN_UI_TWEAKS = {
 
 INSTALLED_APPS = [
     'jazzmin',
->>>>>>> 9a081e2c9ea17dad4b66470b73a4b068771dbf8f
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
