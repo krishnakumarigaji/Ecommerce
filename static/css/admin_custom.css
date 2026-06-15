@@ -1,0 +1,340 @@
+/* ============================================================
+   Vogue Store — Custom Admin Styles
+   Loaded ONLY in the Django admin panel.
+   Has zero effect on the main website UI.
+   ============================================================ */
+
+/* ── Brand colours ── */
+:root {
+  --vogue-pink:       #e91e8c;
+  --vogue-pink-dark:  #c2166f;
+  --vogue-pink-light: #fce4f3;
+  --vogue-dark:       #1a1a2e;
+  --vogue-card-bg:    #ffffff;
+}
+
+/* ── Top header bar ── */
+#header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #e91e8c 100%) !important;
+  border-bottom: 3px solid var(--vogue-pink) !important;
+  box-shadow: 0 2px 10px rgba(233, 30, 140, 0.3);
+}
+
+#header a,
+#header #branding h1,
+#header #branding h1 a {
+  color: #ffffff !important;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ── Sidebar brand logo area ── */
+.brand-link {
+  background: var(--vogue-dark) !important;
+  border-bottom: 1px solid var(--vogue-pink) !important;
+}
+
+.brand-text {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 2px;
+}
+
+/* ── Sidebar background ── */
+.main-sidebar,
+.main-sidebar .sidebar {
+  background: #1a1a2e !important;
+}
+
+/* ── Sidebar nav links ── */
+.nav-sidebar .nav-item .nav-link {
+  color: #c8c8d8 !important;
+  border-radius: 6px;
+  margin: 2px 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-sidebar .nav-item .nav-link:hover,
+.nav-sidebar .nav-item .nav-link.active {
+  background: rgba(233, 30, 140, 0.2) !important;
+  color: #ff69b4 !important;
+  transform: translateX(3px);
+}
+
+.nav-sidebar .nav-item .nav-link.active {
+  background: rgba(233, 30, 140, 0.35) !important;
+  border-left: 3px solid var(--vogue-pink) !important;
+}
+
+/* ── Sidebar section headers ── */
+.nav-sidebar .nav-header {
+  color: var(--vogue-pink) !important;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding-left: 16px;
+  margin-top: 10px;
+}
+
+/* ── Dashboard welcome card ── */
+.jumbotron,
+.welcome-message {
+  background: linear-gradient(135deg, var(--vogue-pink-light), #fff0f8) !important;
+  border-left: 5px solid var(--vogue-pink) !important;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* ── Dashboard app cards ── */
+.card {
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(233, 30, 140, 0.15) !important;
+}
+
+.card-header {
+  background: linear-gradient(135deg, var(--vogue-dark), #16213e) !important;
+  color: #fff !important;
+  font-weight: 600;
+  border-bottom: 2px solid var(--vogue-pink) !important;
+  padding: 12px 18px;
+}
+
+.card-header a {
+  color: #ff69b4 !important;
+}
+
+/* ── Add / Change buttons in card footer ── */
+.card .addlink,
+.card a.addlink {
+  background: var(--vogue-pink) !important;
+  color: #fff !important;
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.card .addlink:hover {
+  background: var(--vogue-pink-dark) !important;
+  text-decoration: none;
+}
+
+.card .changelink,
+.card a.changelink {
+  color: var(--vogue-pink) !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ── Breadcrumbs ── */
+.breadcrumb {
+  background: var(--vogue-pink-light) !important;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.breadcrumb a {
+  color: var(--vogue-pink) !important;
+  font-weight: 600;
+}
+
+/* ── Page titles ── */
+.content-header h1,
+h1.page-title {
+  color: var(--vogue-dark) !important;
+  font-weight: 800;
+  border-bottom: 3px solid var(--vogue-pink);
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+/* ── List table ── */
+#result_list thead th,
+.table thead th {
+  background: var(--vogue-dark) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: none !important;
+}
+
+#result_list thead th a {
+  color: #ff69b4 !important;
+}
+
+#result_list tbody tr:hover,
+.table tbody tr:hover {
+  background: var(--vogue-pink-light) !important;
+  cursor: pointer;
+}
+
+#result_list tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* ── Action bar & filters ── */
+#changelist-filter {
+  background: #fff !important;
+  border-left: 3px solid var(--vogue-pink) !important;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+#changelist-filter h2 {
+  background: var(--vogue-dark) !important;
+  color: #fff !important;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+#changelist-filter li.selected a {
+  color: var(--vogue-pink) !important;
+  font-weight: 700;
+}
+
+#changelist-filter a:hover {
+  color: var(--vogue-pink-dark) !important;
+}
+
+/* ── Search bar ── */
+#toolbar input[type="text"],
+#searchbar {
+  border: 2px solid #e0e0e0 !important;
+  border-radius: 25px !important;
+  padding: 6px 16px !important;
+  transition: border-color 0.2s;
+}
+
+#toolbar input[type="text"]:focus,
+#searchbar:focus {
+  border-color: var(--vogue-pink) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.15) !important;
+}
+
+/* ── Primary action button ── */
+.btn-primary,
+input[type="submit"].default,
+.submit-row input[type="submit"] {
+  background: var(--vogue-pink) !important;
+  border-color: var(--vogue-pink) !important;
+  border-radius: 25px !important;
+  padding: 8px 24px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 3px 10px rgba(233, 30, 140, 0.3);
+}
+
+.btn-primary:hover,
+input[type="submit"].default:hover,
+.submit-row input[type="submit"]:hover {
+  background: var(--vogue-pink-dark) !important;
+  border-color: var(--vogue-pink-dark) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(233, 30, 140, 0.4) !important;
+}
+
+/* ── Delete button ── */
+.btn-danger,
+.deletelink {
+  border-radius: 20px !important;
+}
+
+/* ── Form fields in change/add view ── */
+.form-control:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--vogue-pink) !important;
+  box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.15) !important;
+}
+
+/* ── Fieldset titles ── */
+fieldset h2,
+.fieldset-title {
+  color: var(--vogue-pink) !important;
+  border-bottom: 2px solid var(--vogue-pink-light) !important;
+  padding-bottom: 6px;
+  font-weight: 700;
+}
+
+/* ── Success / error messages ── */
+.alert-success,
+.messagelist li.success {
+  background: #d4edda !important;
+  border-left: 4px solid #28a745 !important;
+  border-radius: 8px;
+}
+
+.alert-error,
+.messagelist li.error {
+  background: #f8d7da !important;
+  border-left: 4px solid #dc3545 !important;
+  border-radius: 8px;
+}
+
+/* ── Pagination ── */
+.paginator a,
+.pagination .page-link {
+  color: var(--vogue-pink) !important;
+  border-radius: 6px !important;
+}
+
+.paginator a:hover,
+.pagination .page-link:hover {
+  background: var(--vogue-pink-light) !important;
+}
+
+/* ── Footer ── */
+.main-footer {
+  background: var(--vogue-dark) !important;
+  color: #888 !important;
+  border-top: 2px solid var(--vogue-pink) !important;
+}
+
+/* ── Inline admin rows ── */
+.inline-group h2 {
+  background: linear-gradient(135deg, var(--vogue-dark), #16213e) !important;
+  color: #fff !important;
+  border-radius: 8px 8px 0 0;
+  padding: 10px 16px;
+  border-bottom: 2px solid var(--vogue-pink) !important;
+}
+
+.inline-related {
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 0 0 8px 8px;
+}
+
+/* ── Select2 dropdowns (if used) ── */
+.select2-container--default .select2-selection--single {
+  border: 2px solid #e0e0e0 !important;
+  border-radius: 8px !important;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--single {
+  border-color: var(--vogue-pink) !important;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--vogue-pink); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--vogue-pink-dark); }
