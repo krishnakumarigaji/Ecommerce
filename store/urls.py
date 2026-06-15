@@ -25,4 +25,6 @@ urlpatterns = [
     path('login/', views.user_login, name='login'),
     path('register/', views.register, name='register'),
     path('logout/', views.user_logout, name='logout'),
+    path('rate/<int:product_id>/', views.submit_rating, name='submit_rating')
+
 ]

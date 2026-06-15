@@ -1,11 +1,12 @@
 from pathlib import Path
 import os
+from decouple import config
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', cast=bool)
 
-SECRET_KEY = 'django-insecure-e4r98!k4uo1&72e2bqc5+6kk=if&fx5db@%siql3e&sg&)ihy^'
-
-DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 JAZZMIN_SETTINGS = {
@@ -14,15 +15,15 @@ JAZZMIN_SETTINGS = {
     "site_header": "Vogue Store",
     "site_brand": "VOGUE",
     "welcome_sign": "Welcome to Vogue Store Admin",
-    "copyright": "Vogue Store © 2026",
+
 
     # ── Icons ──
     "site_icon": None,  # add your logo path if you have one
 
     # ── Top Menu ──
     "topmenu_links": [
-        {"name": "🏠 Home", "url": "admin:index"},
-        {"name": "🛍️ Visit Store", "url": "/", "new_window": True},
+        {"name": " Home", "url": "admin:index"},
+        {"name": " Visit Store", "url": "/", "new_window": True},
     ],
 
     # ── Sidebar Icons (per model) ──
@@ -45,22 +46,22 @@ JAZZMIN_SETTINGS = {
     "navigation_expanded":      True,
     "hide_apps":                [],
     "hide_models":              [],
-    "related_modal_active":     True,   # opens related objects in popup
+    "related_modal_active":     True,   
     "custom_links":             {},
-    "show_ui_builder":          True,   # lets you tweak theme live in browser!
+    "show_ui_builder":          True,   
 }
 
 
 JAZZMIN_UI_TWEAKS = {
-    "theme":                     "flatly",              # ✅ light
-    "dark_mode_theme":           None,                  # ✅ no dark
+    "theme":                     "flatly",              
+    "dark_mode_theme":           None,                  
 
-    "navbar":                    "navbar-white navbar-light",  # ✅ white navbar
+    "navbar":                    "navbar-white navbar-light",  
     "no_navbar_border":          False,
     "navbar_fixed":              True,
     "brand_colour":              "navbar-light",
 
-    "sidebar":                   "sidebar-light-indigo", # ✅ light sidebar
+    "sidebar":                   "sidebar-light-indigo", 
     "sidebar_fixed":             True,
     "sidebar_nav_compact_style": True,
     "sidebar_nav_child_indent":  True,
@@ -143,8 +144,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'krishnadhaker9005@gmail.com'
-EMAIL_HOST_PASSWORD = 'hxjo updr bhms hywj'   # your App Password
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

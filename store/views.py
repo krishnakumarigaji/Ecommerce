@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.core.paginator import Paginator
 
 
 def get_cart_count(request):
@@ -255,3 +256,14 @@ def user_logout(request):
     logout(request)
     messages.success(request, "You've been logged out successfully.")
     return redirect('home')
+
+@login_required
+def submit_rating(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    if request.method == 'POST':
+        stars = request.POST.get('stars')
+        Rating.objects.update_or_create(
+            user=request.user, product=product,
+            defaults={'stars': stars}
+        )
+    return redirect('product_list')
