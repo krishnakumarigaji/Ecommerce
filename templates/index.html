@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load custom_filters %}
 {% block title %}VOGUE STORE — New Fashion Collection{% endblock %}
 {% block extra_css %}
 <style>
@@ -74,8 +75,7 @@
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <p class="hero-eyebrow">{{ banner.eyebrow }}</p>
-                <h1 class="hero-title">{{ banner.title|linebreaksbr }}</h1>
-                <p class="hero-sub">{{ banner.subtitle }}</p>
+                <h1 class="hero-title">{{ banner.title|linebreak_title|safe }}</h1>                     <p class="hero-sub">{{ banner.subtitle }}</p>
                 <div class="hero-btns">
                     {% if banner.btn1_text %}
                     <a href="{{ banner.btn1_url }}" class="btn-gold">{{ banner.btn1_text }}</a>
