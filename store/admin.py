@@ -2,18 +2,15 @@ from django.contrib import admin
 from django.utils.html import format_html
 from .models import Product, Cart, Wishlist, Order, Contact, Rating
 
-<<<<<<< HEAD
+
 admin.site.site_header = "VOGUE STORE Admin"
 admin.site.site_title = "VOGUE Admin"
 admin.site.index_title = "Admin Panel"
-=======
 
 # ── Site-wide admin branding ───────────────────────────────────────────────────
 admin.site.site_header  = "VOGUE STORE"
 admin.site.site_title   = "Vogue Store Admin"
 admin.site.index_title  = "🛍️  Store Management Dashboard"
->>>>>>> 9a081e2c9ea17dad4b66470b73a4b068771dbf8f
-
 
 # ── Product ────────────────────────────────────────────────────────────────────
 @admin.register(Product)
