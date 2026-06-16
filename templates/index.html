@@ -293,7 +293,8 @@
     <div class="carousel-indicators">
         {% for banner in banners %}
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ forloop.counter0 }}" {% if
-            forloop.first %}class="active" {% endif %}></button>
+            forloop.first %}class="active" {% endif %}>
+        </button>
         {% endfor %}
     </div>
 
