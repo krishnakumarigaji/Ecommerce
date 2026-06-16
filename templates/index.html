@@ -4,50 +4,279 @@
 {% block title %}VOGUE STORE — New Fashion Collection{% endblock %}
 {% block extra_css %}
 <style>
-    .hero { position: relative; height: 90vh; overflow: hidden; }
-    .hero img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 100%); }
-    .hero-content { position: absolute; top: 50%; left: 10%; transform: translateY(-50%); color: #fff; }
-    .hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
-    .hero-title em { font-style: italic; color: var(--gold-light); }
-    .hero-sub { font-size: 1rem; color: #ccc; margin-bottom: 36px; max-width: 420px; line-height: 1.7; }
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-    .carousel-indicators [data-bs-target] { width: 30px; height: 3px; border-radius: 0; background-color: var(--gold); opacity: 0.4; }
-    .carousel-indicators .active { opacity: 1; }
+    .hero {
+        position: relative;
+        height: 90vh;
+        overflow: hidden;
+    }
 
-    .section-header { text-align: center; margin-bottom: 48px; }
-    .section-eyebrow { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 400; color: var(--black); }
-    .section-title em { font-style: italic; color: var(--gold); }
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-    .product-card { background: var(--white); border: none; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
-    .product-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .product-img-wrap { position: relative; overflow: hidden; aspect-ratio: 3/4; }
-    .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-    .product-card:hover .product-img-wrap img { transform: scale(1.04); }
-    .product-actions { position: absolute; bottom: -50px; left: 0; right: 0; background: rgba(0,0,0,0.85); padding: 12px; display: flex; gap: 8px; justify-content: center; transition: bottom 0.3s; }
-    .product-card:hover .product-actions { bottom: 0; }
-    .product-actions a { color: #fff; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; padding: 6px 12px; border: 1px solid #555; transition: all 0.2s; }
-    .product-actions a:hover { background: var(--gold); border-color: var(--gold); color: #000; }
-    .product-body { padding: 16px 12px; text-align: center; }
-    .product-category { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-    .product-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 400; margin-bottom: 8px; color: var(--black); }
-    .product-price { font-weight: 600; font-size: 0.9rem; color: var(--black); }
-    .product-rating { color: var(--gold); font-size: 0.75rem; margin-bottom: 4px; }
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.2) 100%);
+    }
 
-    .category-section { padding: 80px 40px; background: var(--black); }
-    .category-card { position: relative; overflow: hidden; aspect-ratio: 3/4; cursor: pointer; }
-    .category-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; filter: brightness(0.75); }
-    .category-card:hover img { transform: scale(1.06); filter: brightness(0.6); }
-    .category-label { position: absolute; bottom: 30px; left: 24px; color: #fff; }
-    .category-label span { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 6px; }
-    .category-label h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 400; }
-    .category-label a { color: #fff; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; display: inline-block; margin-top: 10px; transition: color 0.2s; }
-    .category-label a:hover { color: var(--gold); }
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        color: #fff;
+    }
 
-    .promo-banner { background: var(--gold); padding: 18px; text-align: center; }
-    .promo-banner p { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); font-weight: 600; margin: 0; }
+    .hero-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 16px;
+    }
+
+    .hero-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2.5rem, 5vw, 5rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 20px;
+    }
+
+    .hero-title em {
+        font-style: italic;
+        color: var(--gold-light);
+    }
+
+    .hero-sub {
+        font-size: 1rem;
+        color: #ccc;
+        margin-bottom: 36px;
+        max-width: 420px;
+        line-height: 1.7;
+    }
+
+    .hero-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .carousel-indicators [data-bs-target] {
+        width: 30px;
+        height: 3px;
+        border-radius: 0;
+        background-color: var(--gold);
+        opacity: 0.4;
+    }
+
+    .carousel-indicators .active {
+        opacity: 1;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+
+    .section-eyebrow {
+        font-size: 0.68rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        font-weight: 400;
+        color: var(--black);
+    }
+
+    .section-title em {
+        font-style: italic;
+        color: var(--gold);
+    }
+
+    .product-card {
+        background: var(--white);
+        border: none;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-img-wrap {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 3/4;
+    }
+
+    .product-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+    }
+
+    .product-card:hover .product-img-wrap img {
+        transform: scale(1.04);
+    }
+
+    .product-actions {
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.85);
+        padding: 12px;
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        transition: bottom 0.3s;
+    }
+
+    .product-card:hover .product-actions {
+        bottom: 0;
+    }
+
+    .product-actions a {
+        color: #fff;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 6px 12px;
+        border: 1px solid #555;
+        transition: all 0.2s;
+    }
+
+    .product-actions a:hover {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: #000;
+    }
+
+    .product-body {
+        padding: 16px 12px;
+        text-align: center;
+    }
+
+    .product-category {
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 6px;
+    }
+
+    .product-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 8px;
+        color: var(--black);
+    }
+
+    .product-price {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--black);
+    }
+
+    .product-rating {
+        color: var(--gold);
+        font-size: 0.75rem;
+        margin-bottom: 4px;
+    }
+
+    .category-section {
+        padding: 80px 40px;
+        background: var(--black);
+    }
+
+    .category-card {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 3/4;
+        cursor: pointer;
+    }
+
+    .category-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+        filter: brightness(0.75);
+    }
+
+    .category-card:hover img {
+        transform: scale(1.06);
+        filter: brightness(0.6);
+    }
+
+    .category-label {
+        position: absolute;
+        bottom: 30px;
+        left: 24px;
+        color: #fff;
+    }
+
+    .category-label span {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold-light);
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .category-label h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        font-weight: 400;
+    }
+
+    .category-label a {
+        color: #fff;
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-bottom: 1px solid var(--gold);
+        padding-bottom: 2px;
+        display: inline-block;
+        margin-top: 10px;
+        transition: color 0.2s;
+    }
+
+    .category-label a:hover {
+        color: var(--gold);
+    }
+
+    .promo-banner {
+        background: var(--gold);
+        padding: 18px;
+        text-align: center;
+    }
+
+    .promo-banner p {
+        font-size: 0.8rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--black);
+        font-weight: 600;
+        margin: 0;
+    }
 </style>
 {% endblock %}
 {% block content %}
@@ -59,11 +288,12 @@
 
 <!-- Hero Carousel -->
 <div id="heroCarousel" class="carousel slide hero" data-bs-ride="carousel" data-bs-interval="4000">
-    
+
     <!-- Indicators — dynamically generated -->
     <div class="carousel-indicators">
         {% for banner in banners %}
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ forloop.counter0 }}" {% if
+            forloop.first %}class="active" {% endif %}></button>
         {% endfor %}
     </div>
 
@@ -75,13 +305,15 @@
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <p class="hero-eyebrow">{{ banner.eyebrow }}</p>
-                <h1 class="hero-title">{{ banner.title|linebreak_title|safe }}</h1>                     <p class="hero-sub">{{ banner.subtitle }}</p>
+                <h1 class="hero-title">{{ banner.title|linebreak_title|safe }}</h1>
+                <p class="hero-sub">{{ banner.subtitle }}</p>
                 <div class="hero-btns">
                     {% if banner.btn1_text %}
                     <a href="{{ banner.btn1_url }}" class="btn-gold">{{ banner.btn1_text }}</a>
                     {% endif %}
                     {% if banner.btn2_text %}
-                    <a href="{{ banner.btn2_url }}" class="btn-vogue" style="border-color:#fff;color:#fff;">{{ banner.btn2_text }}</a>
+                    <a href="{{ banner.btn2_url }}" class="btn-vogue" style="border-color:#fff;color:#fff;">{{
+                        banner.btn2_text }}</a>
                     {% endif %}
                 </div>
             </div>
@@ -160,106 +392,118 @@
                 <div class="product-body">
                     <p class="product-category">Men</p>
                     <h5 class="product-name">{{ product.name }}</h5>
-                    {% if product.rating %}<div class="product-rating">{% for i in "12345" %}{% if forloop.counter <= product.rating %}★{% else %}☆{% endif %}{% endfor %}</div>{% endif %}
-                    <p class="product-price">₹{{ product.price }}</p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-    <div class="text-center mt-5"><a href="{% url 'product_list' %}?category=men" class="btn-vogue-outline">View All Men's</a></div>
-</div>
-{% endif %}
-
-<!-- Women's Products -->
-{% if women_products %}
-<div class="container-fluid px-5 py-5" style="background:var(--light-gray);">
-    <div class="section-header">
-        <span class="section-eyebrow">For Her</span>
-        <h2 class="section-title">Women's <em>Latest</em></h2>
-    </div>
-    <div class="row g-4">
-        {% for product in women_products %}
-        <div class="col-6 col-md-3">
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                    <div class="product-actions">
-                        <a href="{% url 'add_to_cart' product.id %}"><i class="fas fa-shopping-bag me-1"></i>Cart</a>
-                        <a href="{% url 'checkout' product.id %}">Buy Now</a>
-                        <a href="{% url 'add_to_wishlist' product.id %}"><i class="fas fa-heart"></i></a>
+                    {% if product.rating %}<div class="product-rating">{% for i in "12345" %}{% if forloop.counter <=
+                            product.rating %}★{% else %}☆{% endif %}{% endfor %}</div>{% endif %}
+                            <p class="product-price">₹{{ product.price }}</p>
                     </div>
                 </div>
-                <div class="product-body">
-                    <p class="product-category">Women</p>
-                    <h5 class="product-name">{{ product.name }}</h5>
-                    {% if product.rating %}<div class="product-rating">{% for i in "12345" %}{% if forloop.counter <= product.rating %}★{% else %}☆{% endif %}{% endfor %}</div>{% endif %}
-                    <p class="product-price">₹{{ product.price }}</p>
-                </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+        <div class="text-center mt-5"><a href="{% url 'product_list' %}?category=men" class="btn-vogue-outline">View All
+                Men's</a></div>
     </div>
-    <div class="text-center mt-5"><a href="{% url 'product_list' %}?category=women" class="btn-vogue-outline">View All Women's</a></div>
-</div>
-{% endif %}
+    {% endif %}
 
-<!-- Kids' Products -->
-{% if kids_products %}
-<div class="container-fluid px-5 py-5">
-    <div class="section-header">
-        <span class="section-eyebrow">For Little Ones</span>
-        <h2 class="section-title">Kid's <em>Latest</em></h2>
-    </div>
-    <div class="row g-4">
-        {% for product in kids_products %}
-        <div class="col-6 col-md-3">
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                    <div class="product-actions">
-                        <a href="{% url 'add_to_cart' product.id %}"><i class="fas fa-shopping-bag me-1"></i>Cart</a>
-                        <a href="{% url 'checkout' product.id %}">Buy Now</a>
-                        <a href="{% url 'add_to_wishlist' product.id %}"><i class="fas fa-heart"></i></a>
+    <!-- Women's Products -->
+    {% if women_products %}
+    <div class="container-fluid px-5 py-5" style="background:var(--light-gray);">
+        <div class="section-header">
+            <span class="section-eyebrow">For Her</span>
+            <h2 class="section-title">Women's <em>Latest</em></h2>
+        </div>
+        <div class="row g-4">
+            {% for product in women_products %}
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        <div class="product-actions">
+                            <a href="{% url 'add_to_cart' product.id %}"><i
+                                    class="fas fa-shopping-bag me-1"></i>Cart</a>
+                            <a href="{% url 'checkout' product.id %}">Buy Now</a>
+                            <a href="{% url 'add_to_wishlist' product.id %}"><i class="fas fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">Women</p>
+                        <h5 class="product-name">{{ product.name }}</h5>
+                        {% if product.rating %}<div class="product-rating">{% for i in "12345" %}{% if forloop.counter
+                            <= product.rating %}★{% else %}☆{% endif %}{% endfor %}</div>{% endif %}
+                                <p class="product-price">₹{{ product.price }}</p>
+                        </div>
                     </div>
                 </div>
-                <div class="product-body">
-                    <p class="product-category">Kids</p>
-                    <h5 class="product-name">{{ product.name }}</h5>
-                    {% if product.rating %}<div class="product-rating">{% for i in "12345" %}{% if forloop.counter <= product.rating %}★{% else %}☆{% endif %}{% endfor %}</div>{% endif %}
-                    <p class="product-price">₹{{ product.price }}</p>
+                {% endfor %}
+            </div>
+            <div class="text-center mt-5"><a href="{% url 'product_list' %}?category=women"
+                    class="btn-vogue-outline">View All Women's</a></div>
+        </div>
+        {% endif %}
+
+        <!-- Kids' Products -->
+        {% if kids_products %}
+        <div class="container-fluid px-5 py-5">
+            <div class="section-header">
+                <span class="section-eyebrow">For Little Ones</span>
+                <h2 class="section-title">Kid's <em>Latest</em></h2>
+            </div>
+            <div class="row g-4">
+                {% for product in kids_products %}
+                <div class="col-6 col-md-3">
+                    <div class="product-card">
+                        <div class="product-img-wrap">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <div class="product-actions">
+                                <a href="{% url 'add_to_cart' product.id %}"><i
+                                        class="fas fa-shopping-bag me-1"></i>Cart</a>
+                                <a href="{% url 'checkout' product.id %}">Buy Now</a>
+                                <a href="{% url 'add_to_wishlist' product.id %}"><i class="fas fa-heart"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <p class="product-category">Kids</p>
+                            <h5 class="product-name">{{ product.name }}</h5>
+                            {% if product.rating %}<div class="product-rating">{% for i in "12345" %}{% if
+                                forloop.counter <= product.rating %}★{% else %}☆{% endif %}{% endfor %}</div>{% endif %}
+                                    <p class="product-price">₹{{ product.price }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="text-center mt-5"><a href="{% url 'product_list' %}?category=kids"
+                        class="btn-vogue-outline">View All Kids'</a></div>
+            </div>
+            {% endif %}
+
+            <!-- Features strip -->
+            <div class="container-fluid py-5" style="background:var(--black);color:#fff;">
+                <div class="row text-center g-4 px-4">
+                    <div class="col-6 col-md-3">
+                        <i class="fas fa-truck fa-2x" style="color:var(--gold);margin-bottom:12px;"></i>
+                        <h6 style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">
+                            Free Shipping</h6>
+                        <p style="font-size:0.8rem;color:#888;">On orders above ₹999</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <i class="fas fa-undo fa-2x" style="color:var(--gold);margin-bottom:12px;"></i>
+                        <h6 style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">
+                            Easy Returns</h6>
+                        <p style="font-size:0.8rem;color:#888;">30-day return policy</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <i class="fas fa-shield-alt fa-2x" style="color:var(--gold);margin-bottom:12px;"></i>
+                        <h6 style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">
+                            Secure Payment</h6>
+                        <p style="font-size:0.8rem;color:#888;">100% secure checkout</p>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <i class="fas fa-headset fa-2x" style="color:var(--gold);margin-bottom:12px;"></i>
+                        <h6 style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">
+                            24/7 Support</h6>
+                        <p style="font-size:0.8rem;color:#888;">We're always here to help</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% endfor %}
-    </div>
-    <div class="text-center mt-5"><a href="{% url 'product_list' %}?category=kids" class="btn-vogue-outline">View All Kids'</a></div>
-</div>
-{% endif %}
-
-<!-- Features strip -->
-<div class="container-fluid py-5" style="background:var(--black);color:#fff;">
-    <div class="row text-center g-4 px-4">
-        <div class="col-6 col-md-3">
-            <i class="fas fa-truck fa-2x" style="color:var(--gold);margin-bottom:12px;"></i>
-            <h6 style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Free Shipping</h6>
-            <p style="font-size:0.8rem;color:#888;">On orders above ₹999</p>
-        </div>
-        <div class="col-6 col-md-3">
-            <i class="fas fa-undo fa-2x" style="color:var(--gold);margin-bottom:12px;"></i>
-            <h6 style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Easy Returns</h6>
-            <p style="font-size:0.8rem;color:#888;">30-day return policy</p>
-        </div>
-        <div class="col-6 col-md-3">
-            <i class="fas fa-shield-alt fa-2x" style="color:var(--gold);margin-bottom:12px;"></i>
-            <h6 style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Secure Payment</h6>
-            <p style="font-size:0.8rem;color:#888;">100% secure checkout</p>
-        </div>
-        <div class="col-6 col-md-3">
-            <i class="fas fa-headset fa-2x" style="color:var(--gold);margin-bottom:12px;"></i>
-            <h6 style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">24/7 Support</h6>
-            <p style="font-size:0.8rem;color:#888;">We're always here to help</p>
-        </div>
-    </div>
-</div>
-{% endblock %}
+            {% endblock %}
