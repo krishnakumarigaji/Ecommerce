@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.core.paginator import Paginator
+from .models import Banner
+
 
 
 def get_cart_count(request):
@@ -16,10 +18,12 @@ def get_cart_count(request):
 
 
 def index(request):
+    banners = Banner.objects.filter(is_active=True)
     men_products = Product.objects.filter(category='men')
     women_products = Product.objects.filter(category='women')
     kids_products = Product.objects.filter(category='kids')
     return render(request, 'index.html', {
+        'banners': banners,
         'men_products': men_products,
         'women_products': women_products,
         'kids_products': kids_products,

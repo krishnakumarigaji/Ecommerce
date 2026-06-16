@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.utils.html import format_html
 from .models import Product, Cart, Wishlist, Order, Contact, Rating
+from .models import Banner
+
 
 
 admin.site.site_header = "VOGUE STORE Admin"
@@ -226,3 +228,9 @@ class RatingAdmin(admin.ModelAdmin):
         )
     star_display.short_description = 'Stars'
     star_display.admin_order_field = 'stars'
+
+
+
+@admin.register(Banner)
+class BannerAdmin(admin.ModelAdmin):
+    list_display = ['title', 'is_active']

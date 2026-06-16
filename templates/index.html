@@ -58,57 +58,44 @@
 
 <!-- Hero Carousel -->
 <div id="heroCarousel" class="carousel slide hero" data-bs-ride="carousel" data-bs-interval="4000">
+    
+    <!-- Indicators — dynamically generated -->
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        {% for banner in banners %}
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></button>
+        {% endfor %}
     </div>
+
+    <!-- Slides -->
     <div class="carousel-inner" style="height:100%;">
-        <div class="carousel-item active" style="height:100%;">
-            <img src="{% static 'img/slider-1.jpg' %}" alt="New Collection">
+        {% for banner in banners %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}" style="height:100%;">
+            <img src="{{ banner.image.url }}" alt="{{ banner.title }}">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <p class="hero-eyebrow">New Arrivals 2026</p>
-                <h1 class="hero-title">The New<br><em>Fashion Collection</em></h1>
-                <p class="hero-sub">Discover the latest trends crafted for those who dare to stand out.</p>
+                <p class="hero-eyebrow">{{ banner.eyebrow }}</p>
+                <h1 class="hero-title">{{ banner.title|linebreaksbr }}</h1>
+                <p class="hero-sub">{{ banner.subtitle }}</p>
                 <div class="hero-btns">
-                    <a href="{% url 'product_list' %}" class="btn-gold">Shop Now</a>
-                    <a href="{% url 'product_list' %}?category=women" class="btn-vogue" style="border-color:#fff;color:#fff;">Women's Edit</a>
+                    {% if banner.btn1_text %}
+                    <a href="{{ banner.btn1_url }}" class="btn-gold">{{ banner.btn1_text }}</a>
+                    {% endif %}
+                    {% if banner.btn2_text %}
+                    <a href="{{ banner.btn2_url }}" class="btn-vogue" style="border-color:#fff;color:#fff;">{{ banner.btn2_text }}</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
-        <div class="carousel-item" style="height:100%;">
-            <img src="{% static 'img/1.jpg' %}" alt="Best Deals">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <p class="hero-eyebrow">Limited Time Offer</p>
-                <h1 class="hero-title">Best Deals<br><em>This Season</em></h1>
-                <p class="hero-sub">Save big on our most popular styles. Premium quality at unbeatable prices.</p>
-                <div class="hero-btns">
-                    <a href="{% url 'product_list' %}" class="btn-gold">Explore</a>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item" style="height:100%;">
-            <img src="{% static 'img/3.jpg' %}" alt="Shop Smart">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <p class="hero-eyebrow">Smart Shopping</p>
-                <h1 class="hero-title">Shop Smart,<br><em>Dress Better</em></h1>
-                <p class="hero-sub">Quality products curated for every lifestyle and occasion.</p>
-                <div class="hero-btns">
-                    <a href="{% url 'product_list' %}" class="btn-gold">Buy Now</a>
-                    <a href="{% url 'product_list' %}?category=men" class="btn-vogue" style="border-color:#fff;color:#fff;">Men's Edit</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
+
     <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
     </button>
+
 </div>
 
 <!-- Category Section -->
