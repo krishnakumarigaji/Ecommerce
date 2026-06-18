@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.core.paginator import Paginator
-from .models import Banner
+from .models import Banner,CategoryImage
 
 
 
@@ -22,12 +22,20 @@ def index(request):
     men_products = Product.objects.filter(category='men')
     women_products = Product.objects.filter(category='women')
     kids_products = Product.objects.filter(category='kids')
+
+    # Category images
+    cat_images = CategoryImage.objects.all()
+    cat_dict = {c.category: c.image.url for c in cat_images}
+
     return render(request, 'index.html', {
         'banners': banners,
         'men_products': men_products,
         'women_products': women_products,
         'kids_products': kids_products,
         'cart_count': get_cart_count(request),
+        'men_image': cat_dict.get('men', ''),
+        'women_image': cat_dict.get('women', ''),
+        'kids_image': cat_dict.get('kids', ''),
     })
 
 

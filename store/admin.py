@@ -2,7 +2,11 @@ from django.contrib import admin
 from django.utils.html import format_html
 from .models import Product, Cart, Wishlist, Order, Contact, Rating
 from .models import Banner
+from .models import CategoryImage
 
+
+
+admin.site.register(CategoryImage)
 
 
 admin.site.site_header = "VOGUE STORE Admin"
