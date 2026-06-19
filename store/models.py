@@ -2,27 +2,25 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
-class CategoryImage(models.Model):
+
+class Product(models.Model):
     CATEGORY_CHOICES = (
-        ('men','Men'),
-        ('women','Women'),
-        ('kids','Kids'),
+        ('men', 'Men'),
+        ('women', 'Women'),
+        ('kids', 'Kids'),
     )
-    
 
     name = models.CharField(max_length=200)
     price = models.IntegerField()
     image = models.ImageField(upload_to='products/')
-    rating = models.IntegerField(blank=True,null=True)
-    
-    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES, unique=True)
-    image = models.ImageField(upload_to='categories/')
+    rating = models.IntegerField(blank=True, null=True)
 
-
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
 
     def __str__(self):
-        return self.category
-    
+        return self.name
+
+
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -31,21 +29,22 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
-    
+
+
 class Order(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     address = models.TextField(max_length=255)
     city = models.CharField(max_length=100)
-    state=models.CharField(max_length=100,default="NA")
+    state = models.CharField(max_length=100, default="NA")
     pincode = models.CharField(max_length=10)
-
 
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
+
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -54,6 +53,7 @@ class Cart(models.Model):
 
     def __str__(self):
         return self.product.name
+
     def total_price(self):
         return self.product.price * self.quantity
 
@@ -64,15 +64,16 @@ class Wishlist(models.Model):
 
     def __str__(self):
         return self.product.name
-    
+
+
 class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE,related_name='ratings')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='ratings')
     stars = models.IntegerField()
 
     def __str__(self):
         return self.product.name
-    
+
 
 class Banner(models.Model):
     image = models.ImageField(upload_to='banners/')
@@ -91,3 +92,16 @@ class Banner(models.Model):
 
     def __str__(self):
         return self.title or f"Banner {self.id}"
+
+
+class CategoryImage(models.Model):
+    CATEGORY_CHOICES = (
+        ('men', 'Men'),
+        ('women', 'Women'),
+        ('kids', 'Kids'),
+    )
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES, unique=True)
+    image = models.ImageField(upload_to='categories/')
+
+    def __str__(self):
+        return self.category
