@@ -390,12 +390,13 @@
                 <div class="product-body">
                     <p class="product-category">Men</p>
                     <h5 class="product-name">{{ product.name }}</h5>
-                    {% if product.rating %}
+
                     {% if product.rating %}
                     <div class="product-rating">
                         Rating: {{ product.rating }}/5
                     </div>
                     {% endif %}
+
                     <p class="product-price">Rs.{{ product.price }}</p>
                 </div>
             </div>
