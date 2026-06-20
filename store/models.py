@@ -101,7 +101,7 @@ class CategoryImage(models.Model):
         ('kids', 'Kids'),
     )
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES, unique=True)        
-    name = models.CharField(max_length=100)
+    
 
     image = models.ImageField(upload_to='categories/')
 
