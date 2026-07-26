@@ -21,10 +21,14 @@ admin.site.index_title  = "🛍️  Store Management Dashboard"
 # ── Product ────────────────────────────────────────────────────────────────────
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display  = ('product_image', 'name', 'category_badge', 'formatted_price', 'star_rating')
+    list_display = (
+    'name',
+    'price',
+    'category',
+)    
     list_filter   = ('category',)
     search_fields = ('name',)
-    list_editable = ('name',)
+    #list_editable = ('name',)
     ordering      = ('category', 'name')
     list_per_page = 20
 
